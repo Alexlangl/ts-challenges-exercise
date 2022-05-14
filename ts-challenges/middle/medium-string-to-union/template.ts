@@ -18,8 +18,8 @@
 type StringToUnion<
   T extends string,
   P extends object = {}
-> = T extends `${infer First}${infer Rest}`
+> = T extends `${infer First}${infer Reset}`
   ? First extends ''
     ? keyof P
-    : StringToUnion<Rest, P & { [key in First]: '占位' }>
+    : StringToUnion<Reset, P & { [key in First]: '占位' }>
   : keyof P;
